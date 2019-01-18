@@ -26,18 +26,20 @@ def splash_welcome():
 
 def add_cards():
     print("新增名片")
-    name_str = input("请输入姓名:")
-    phone_str = input("请输入电话号码：")
-    qq_str = input("请输入QQ号码：")
-    mail_str = input("请输入邮箱地址：")
-
-    msg_dict = {"name": name_str,
-                "phone": phone_str,
-                "qq": qq_str,
-                "mail": mail_str}
-    print(msg_dict)
-    print("新增 %s 的名片成功！" % name_str)
-    cards_list.append(msg_dict)
+    name_str = input("请输入姓名:").strip()
+    phone_str = input("请输入电话号码：").strip()
+    qq_str = input("请输入QQ号码：").strip()
+    mail_str = input("请输入邮箱地址：").strip()
+    if len(name_str) > 0 or len(phone_str) > 0 or len(qq_str) > 0 or len(mail_str) > 0:
+        msg_dict = {"name": name_str,
+                    "phone": phone_str,
+                    "qq": qq_str,
+                    "mail": mail_str}
+        print(msg_dict)
+        print("新增 %s 的名片成功！" % name_str)
+        cards_list.append(msg_dict)
+    else:
+        print("不要输入空")
 
 
 def show_all():
@@ -105,18 +107,18 @@ def del_or_change(name):
 
 
 def change_dict(dict_msg):
-    name_str = input("修改姓名(不修改则输入回车)")
-    phone_str = input("修改电话号码(不修改则输入回车)")
-    qq_str = input("修改QQ号码(不修改则输入回车)")
-    mail_str = input("修改邮箱地址(不修改则输入回车)")
+    name_str = input("修改姓名(不修改则输入回车)").strip()
+    phone_str = input("修改电话号码(不修改则输入回车)").strip()
+    qq_str = input("修改QQ号码(不修改则输入回车)").strip()
+    mail_str = input("修改邮箱地址(不修改则输入回车)").strip()
 
-    if (not name_str.isspace()) and len(name_str) == 0:
+    if len(name_str) == 0:
         name_str = dict_msg["name"]
-    if (not phone_str.isspace()) and len(phone_str) == 0:
+    if len(phone_str) == 0:
         phone_str = dict_msg["phone"]
-    if (not qq_str.isspace()) and len(qq_str) == 0:
+    if len(qq_str) == 0:
         qq_str = dict_msg["qq"]
-    if (not mail_str.isspace()) and len(mail_str) == 0:
+    if len(mail_str) == 0:
         mail_str = dict_msg["mail"]
 
     msg_dict = {"name": name_str,
