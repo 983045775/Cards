@@ -88,9 +88,7 @@ def del_or_change(name):
             for dict_people in cards_list:
                 if dict_people["name"].__eq__(name):
                     # 找到了
-                    new_card = change_dict(dict_people)
-                    cards_list.remove(dict_people)
-                    cards_list.append(new_card)
+                    change_dict(dict_people)
             break
         elif choose.__eq__("2"):
             # 删除
@@ -120,9 +118,7 @@ def change_dict(dict_msg):
         qq_str = dict_msg["qq"]
     if len(mail_str) == 0:
         mail_str = dict_msg["mail"]
-
-    msg_dict = {"name": name_str,
-                "phone": phone_str,
-                "qq": qq_str,
-                "mail": mail_str}
-    return msg_dict
+    dict_msg.update({"name": name_str})
+    dict_msg.update({"qq": qq_str})
+    dict_msg.update({"mail": mail_str})
+    dict_msg.update({"phone": phone_str})
