@@ -1,28 +1,31 @@
 #! /Library/Frameworks/Python.framework/Versions/3.7/bin/python3
 
-import cards_tools
+import cards_constant
+from cards_tools import CardsUtils
+
+cards_utils = CardsUtils()
 
 while True:
     # 欢迎界面
-    cards_tools.splash_welcome()
+    cards_utils.splash_welcome()
     # 取到输入值
     choose = input("请选择希望执行的操作")
     print("您选择的操作是:%s" % choose)
     print("-" * 50)
 
-    if choose in [cards_tools.S_ADD, cards_tools.S_SHOW_ALL, cards_tools.S_SEACH]:
-        if choose.__eq__(cards_tools.S_ADD):
+    if choose in [cards_constant.S_ADD, cards_constant.S_SHOW_ALL, cards_constant.S_SEACH]:
+        if choose.__eq__(cards_constant.S_ADD):
             # 添加
-            cards_tools.add_cards()
-        elif choose.__eq__(cards_tools.S_SHOW_ALL):
+            cards_utils.add_cards()
+        elif choose.__eq__(cards_constant.S_SHOW_ALL):
             # 查看所有
-            cards_tools.show_all()
+            cards_utils.show_all()
             pass
-        elif choose.__eq__(cards_tools.S_SEACH):
+        elif choose.__eq__(cards_constant.S_SEACH):
             # 搜索
-            cards_tools.seach_name()
+            cards_utils.seach_name()
             pass
-    elif choose.__eq__(cards_tools.S_EXIT):
+    elif choose.__eq__(cards_constant.S_EXIT):
         print("欢迎再次使用名片系统！")
         print("-" * 50)
         break
