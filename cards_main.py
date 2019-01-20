@@ -4,6 +4,7 @@ from cards_tools import CardsUtils
 
 cards_utils = CardsUtils()
 
+print(cards_utils)
 while True:
     # 欢迎界面
     cards_utils.splash_welcome()

@@ -12,10 +12,14 @@ class CardsUtils:
     # 存储个人信息的列表
     cards_list = []
 
+    def __str__(self):
+        return "toString 方法"
+
     def splash_welcome(self):
         """欢迎界面
 
         """
+        # self 说白了和this的使用方法很像
         print("*" * 50)
         print("欢迎使用【名片管理系统】V2.0.0", end="\r\n\r\n")
         print("%s.新增名片" % self.S_ADD)
